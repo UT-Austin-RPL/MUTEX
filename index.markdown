@@ -207,7 +207,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
 <table border="0" cellspacing="10" cellpadding="0" align="center">
     <tbody><tr><td>
         <p align="justify" width="20%">
-            We demonstrate that a policy that can execute task specified by multiple modalities generalizes better than a policy that can only execute tasks specified by any-single modality. The results of our evaluation in <b>simulation</b> (each method averaged over <b>6000 evaluation trajectories</b>) and the <b>real world</b> (each method averaged over <b>50 evaluation trajectories</b>) are summarized below. In both cases, we observe a significant improvement from using our unified policy MUTEX compared to modality-specific models indicating that the cross-modal representation learning procedure from MUTEX is able to leverage more information from other modalities.
+            We demonstrate that a policy that can execute task specified by multiple modalities generalizes better than a policy that can only execute tasks specified by any-single modality. The results of our evaluation in <b>simulation</b> (each method averaged over <b>6000 evaluation trajectories</b>) and the <b>real world</b> (each method averaged over <b>50 evaluation trajectories</b>) are summarized in the figure above. In both cases, we observe a significant improvement from using our unified policy MUTEX compared to modality-specific models indicating that the cross-modal representation learning procedure from MUTEX is able to leverage more information from other modalities.
         </p>
     </td></tr></tbody>
 </table>
@@ -235,8 +235,7 @@ cellpadding="0"><tr><td>
     <tr>
       <td align="center" valign="middle">
         <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
-          <!-- <iframe src="https://www.youtube.com/embed/4T7HwLGNiuw" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe> -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/IiTXBH2vUxc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/CDNoQjGnzfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </td>
     </tr>
@@ -252,39 +251,89 @@ cellpadding="0"><tr><td>
         <th></th>
         <th>Task 1</th>
         <th>Task 2</th>
+        <th>Task 3</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
 
-  <!-- <script>
-    const boxWidth = 100;
+  <script>
+    const boxWidth = 128;
     const boxHeight = 100;
+    // make a list that maps index to type of task specification
+    const taskTypes = ["robot", "vid", "img", "gl", "inst", "ag", "ai"];
 
-    function createTextBox(text, boxWidth, boxHeight) {
-      const textBox = document.createElement('div');
-      textBox.style.width = boxWidth + "px";
-      textBox.style.height = boxHeight + "px";
-      textBox.style.border = "1px solid black";
-      textBox.style.display = "flex";
-      textBox.style.justifyContent = "center";
-      textBox.style.alignItems = "center";
-      textBox.style.textAlign = "center";
+    function createTextBox(text, boxWidth, boxHeight, text_type) {
+        const textBox = document.createElement('div');
+        // add text font size
+        textBox.style.width = boxWidth + "px";
+        textBox.style.height = boxHeight + "px";
+        textBox.style.border = "1px solid black";
+        textBox.style.display = "flex";
+        textBox.style.justifyContent = "center";
+        textBox.style.alignItems = "center";
+        textBox.style.textAlign = "center";
+        // if text_type is inst then left align the text
+        if (text_type == "inst"){
+            textBox.style.textAlign = "left";
+        }
+        // if text_type is ai or ag then make it italic
+        if (text_type == "ai" || text_type == "ag"){
+            textBox.style.fontStyle = "italic";
+            textBox.style.border = "0px solid black";
+        }
 
-      const textContent = document.createElement('p');
-      textContent.innerText = text;
-      textBox.appendChild(textContent);
+        const textContent = document.createElement('p');
+        textContent.innerText = text;
+        textBox.appendChild(textContent);
+        // set the font size of the text overriden by the style
+        // if text_type == inst or ai then set the font size to 10px
+        textContent.style.fontSize = "12px";
+        if (text_type == "inst" || text_type == "ai")
+            textContent.style.fontSize = "11px";
 
-      return textBox;
+        // add padding of 4px
+        textBox.style.padding = "8px";
+        return textBox;
     }
+    function createImageBox(src, boxWidth, boxHeight) {
+        var img = document.createElement('img');
+        img.src = src;
+        img.style.width = boxWidth; // Set the width to your desired value
+        img.style.height = boxHeight; // Set the width to your desired value
+        img.style.margin = '0 auto'; // Align the text box to the center horizontally
+        return img
+    }
+    var taskData = ['RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it', 'RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven', 'RW7_put_the_book_in_the_back_compartment_of_the_caddy']
     var tableData = [
-      ['Image 1', 'Video 1', 'vipnsdoivnsdoivnsdo\nivnsoidnvosidnvosdnopvsn'],
-      ['Image 2', 'Video 2', 'Text 2'],
-      ['Image 3', 'Video 3', 'Text 3'],
-      ['Image 4', 'Video 4', 'Text 4'],
-      ['Image 5', 'Video 5', 'Text 5']
+      ['Robot Execution', '', '', ''],
+      ['Video\nDemonstration', '', '', ''],
+      ['Image Goals', '', '', ''],
+      ['Text Goals', 'Text Goals Key1', 'Text Goals Key2', 'Text Goals Key3'],
+      ['Text\nInstructions', 'Text Instructions Key 1', 'Text Instructions Key 2', 'Text Instructions Key 3'],
+      ['Speech Goals', 'Speech Goals 1', 'Speech Goals 2', 'Speech Goals 3'],
+      ['Speech\nInstructions', 'Speech Instructions 1', 'Speech Instruction 2', 'Speech Instructions 3'],
     ];
-
+    var jsonData = {
+      "RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it": {
+          "ag": "Position the hot dog container in the air fryer basket.",
+          "ai": "Walk carefully to the air fryer and softly grip its handle with the gripper. Gently open it by pulling on the handle. Head to the hot dog bowl and pick it up with caution. Lastly, gently insert the hot dog bowl into the open air fryer.",
+          "gl": "The bowl that houses hot dogs is carefully put in the air fryer basket.",
+          "inst": "1. Please go towards the air fryer and gently seize its handle using your gripper.\n2. Slowly reveal the interior of the air fryer by pulling the handle outward.\n3. Head to the bowl filled with hot dogs and firmly but gently grasp it.\n4. Carefully place it inside the now-open air fryer."
+      },
+      "RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven": {
+          "ag": "The loaf is sitting cautiously on the oven tray.",
+          "ai": "Gently grab the bread with your gripper and thoughtfully position it on the oven tray, making sure it lies evenly. Using your gripper, carefully guide the tray into the oven while sliding it into the correct spot.",
+          "gl": "The bread has been cautiously placed on the oven tray.",
+          "inst": "1. Kindly employ your clamp to softly take hold of the bread.\n2. Delicately rest it on the oven pan, verifying that it is even on the surface.\n3. Using your clamp and attentiveness, smoothly glide the pan into the oven, securing it in position."
+      },
+      "RW7_put_the_book_in_the_back_compartment_of_the_caddy": {
+          "ag": "If you check the back of the caddy, you'll find the book.",
+          "ai": "Identify the book and open your gripper to the right width. Move your gripper to the book and grasp it firmly. Locate the back compartment of the caddy. Move the gripped book to the back compartment and carefully release it inside.",
+          "gl": "The book can be found in the rear section of the caddy.",
+          "inst": "1. Discover the targeted book and set your gripper to the appropriate amplitude.\n2. Smoothly guide your gripper in the direction of the book and snatch it firmly.\n3. Search for the back section of the caddy.\n4. Move the held book towards the back section and lightly deposit it inside."
+      }
+    };
     var tableBody = document.querySelector('#myTable tbody');
 
     for (var i = 0; i < tableData.length; i++) {
@@ -292,33 +341,132 @@ cellpadding="0"><tr><td>
 
       for (var j = 0; j < tableData[i].length; j++) {
         var cell = document.createElement('td');
+        if (j == 0) {
+            const container = document.createElement("div");
+            container.style.display = "flex";
+            container.style.flexDirection = "column"; // Added line
 
-        // You can add specific content based on the data type (image, video, audio, or text)
-        if (j === 0) {
+            // Define the image source based on the task type
+            // create the text box element
+            const textbox = document.createElement("div");
+            const text = tableData[i][j];
+            textbox.style.border = "none";
+            textbox.style.justifyContent = "center";
+            textbox.style.alignItems = "center";
+            textbox.style.textAlign = "center";
 
-          var img = document.createElement('img');
-          img.src = tableData[i][j];
-          img.style.width = boxWidth; // Set the width to your desired value
-          img.style.margin = '0 auto'; // Align the text box to the center horizontally
-          cell.appendChild(img);
-        } else if (j === 1) {
-          var video = document.createElement('video');
-          video.src = tableData[i][j];
-          video.style.width = boxWidth; // Set the width to your desired value
-          video.style.margin = '0 auto'; // Align the text box to the center horizontally
-          cell.appendChild(video);
-        } else if (j === 2) {
-          var textBox = createTextBox(tableData[i][j], boxWidth, boxHeight);
-          textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
-          cell.appendChild(textBox);
+            // Split the text into lines and create separate div elements for each line
+            const lines = text.split("\n");
+            lines.forEach(line => {
+              const lineDiv = document.createElement("div");
+              lineDiv.textContent = line;
+              textbox.appendChild(lineDiv);
+            });
+
+            // Create the image box
+            const imageSource = 'src/icons/' + taskTypes[i] + '_icon.png';
+            const img = createImageBox(imageSource, 0.4*boxWidth, 0.4*boxWidth);
+
+            // Append the image box and textbox to the container
+            container.appendChild(textbox);
+            container.appendChild(img);
+
+            // Append the container to the cell
+            cell.appendChild(container);
         }
+        else {
+            // For j=1,2 just change the data. Everything else remains the same.
+            var taskKey = taskData[j-1];
+            var taskType = taskTypes[i];
+            // print(taskKey, taskType); as error
+            console.log(taskKey, taskType);
 
+            // if taskType == 'robot' then the data is a video and we need to create a video element
+            // if taskType == 'vid' then the data is a video and we need to create a video element
+            // if taskType == 'img' then the data is an image and we need to create an image element
+            // if taskType == 'gl' then the data is a text goal and we need to create a text box element
+            // if taskType == 'inst' then the data is a text instruction and we need to create a text box element
+            // if taskType == 'ag' then the data is a speech goal and we need to create a text box element with audio
+            // if taskType == 'ai' then the data is a speech instruction and we need to create a text box element with audio
+            // location for data is at src/data_vis/{taskType}/{taskKey}
+            if (taskType == 'vid' || taskType == 'robot') {
+                var video = document.createElement('video');
+                video.src = 'src/data_vis/' + taskType + '/' + taskType + '_' + taskKey;
+                video.src += '.mp4';
+                // print(video.src);
+                // log as an error to print it in terminal
+                console.error(video.src);
+                video.style.display = 'block'; // Makes the video a block element
+                if (taskType == 'robot') {
+                    video.style.height = boxHeight; // Set the width to your desired value
+                }
+                else {
+                    video.style.width = boxWidth; // Set the width to your desired value
+                }
+                video.style.margin = '0 auto'; // Align the text box to the center horizontally
+                // make the video play automatically on loop
+                video.autoplay = true;
+                video.loop = true;
+                cell.appendChild(video);
+            }
+            else if (taskType == 'img') {
+                var img = document.createElement('img');
+                img.src = 'src/data_vis/' + taskType + '/img_' + taskKey + '.jpg';
+                img.style.width = boxWidth; // Set the width to your desired value
+                // img.style.height = boxHeight; // Set the width to your desired value
+                img.style.margin = '0 auto'; // Align the text box to the center horizontally
+                cell.appendChild(img);
+            }
+            else if (taskType == 'gl') {
+
+                tableData[i][j] = jsonData[taskKey][taskType];
+                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight-50, text_type=taskType);
+                textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
+                cell.appendChild(textBox);
+            }
+            else if (taskType == 'inst') {
+                tableData[i][j] = jsonData[taskKey][taskType];
+                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+40, text_type=taskType);
+                textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
+                cell.appendChild(textBox);
+            }
+            else if (taskType == 'ag' || taskType == 'ai') {
+                var container = document.createElement('div');
+                container.style.position = 'relative';
+
+                tableData[i][j] = jsonData[taskKey][taskType];
+                if (taskType == 'ag') {
+                    var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight, text_type=taskType);
+                }
+                else {
+                    var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+38, text_type=taskType);
+                }
+                textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
+                container.appendChild(textBox);
+
+                // add audio to the text box with the audio file
+                var audio = document.createElement('audio');
+                audio.src = 'src/data_vis/' + taskType + '/' + taskKey + '_' + taskType + '.mp3';
+                audio.controls = true;
+                // make the audio box width the same as the text box
+                audio.style.width = textBox.style.width;
+                container.appendChild(audio);
+
+                // Position the audio element at the bottom center of the container
+                audio.style.position = 'absolute';
+                audio.style.bottom = '0';
+                audio.style.left = '50%';
+                audio.style.transform = 'translateX(-50%)';
+
+                cell.appendChild(container);
+            }
+        }
         row.appendChild(cell);
       }
 
       tableBody.appendChild(row);
     }
-  </script> -->
+  </script>
 
 <br>
 <hr>
