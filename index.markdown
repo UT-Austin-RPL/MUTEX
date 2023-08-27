@@ -244,13 +244,10 @@ cellpadding="0"><tr><td>
 
 
 <br><hr>
-<h1 align="center">MUTEX Dataset Visualization</h1>
+<!-- <h1 align="center">MUTEX Dataset Visualization <button onclick="location.reload();">Reload Page</button></h1> -->
+  <th>[Press Reload to change the tasks]</th>
+  <h1 align="center">MUTEX Dataset Visualization <button onclick="location.reload();" style="background: none; border: none; cursor: pointer;"><img src="src/reload.png" alt="Reload Page" style="vertical-align: middle; width: 30px; height: 30px;"></button></h1>
   <table id="myTable">
-    <thead>
-      <tr>
-        <th></th>
-      </tr>
-    </thead>
     <tbody></tbody>
   </table>
 
