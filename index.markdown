@@ -235,7 +235,7 @@ cellpadding="0"><tr><td>
     <tr>
       <td align="center" valign="middle">
         <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/CDNoQjGnzfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/hyiDor1mdOw?si=0JYGpU9ziAXuqYI_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </td>
     </tr>
@@ -397,12 +397,7 @@ cellpadding="0"><tr><td>
                 // log as an error to print it in terminal
                 console.error(video.src);
                 video.style.display = 'block'; // Makes the video a block element
-                if (taskType == 'robot') {
-                    video.style.height = boxHeight; // Set the width to your desired value
-                }
-                else {
-                    video.style.width = boxWidth; // Set the width to your desired value
-                }
+                video.style.width = boxWidth; // Set the width to your desired value
                 video.style.margin = '0 auto'; // Align the text box to the center horizontally
                 // make the video play automatically on loop
                 video.autoplay = true;
@@ -411,7 +406,7 @@ cellpadding="0"><tr><td>
             }
             else if (taskType == 'img') {
                 var img = document.createElement('img');
-                img.src = 'src/data_vis/' + taskType + '/img_' + taskKey + '.jpg';
+                img.src = 'src/data_vis/' + taskType + '/img_' + taskKey + '.png';
                 img.style.width = boxWidth; // Set the width to your desired value
                 // img.style.height = boxHeight; // Set the width to your desired value
                 img.style.margin = '0 auto'; // Align the text box to the center horizontally
@@ -443,6 +438,8 @@ cellpadding="0"><tr><td>
                 }
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
                 container.appendChild(textBox);
+                // add some blank space between the text box and the audio box
+                container.appendChild(document.createElement('br'));
 
                 // add audio to the text box with the audio file
                 var audio = document.createElement('audio');
@@ -456,6 +453,7 @@ cellpadding="0"><tr><td>
                 audio.style.position = 'absolute';
                 audio.style.bottom = '0';
                 audio.style.left = '50%';
+                // add some space to the audio element from the text box
                 audio.style.transform = 'translateX(-50%)';
 
                 cell.appendChild(container);
