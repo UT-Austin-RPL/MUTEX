@@ -249,9 +249,6 @@ cellpadding="0"><tr><td>
     <thead>
       <tr>
         <th></th>
-        <th>Task 1</th>
-        <th>Task 2</th>
-        <th>Task 3</th>
       </tr>
     </thead>
     <tbody></tbody>
@@ -261,8 +258,6 @@ cellpadding="0"><tr><td>
     const boxWidth = 128;
     const boxHeight = 100;
     // make a list that maps index to type of task specification
-    const taskTypes = ["robot", "vid", "img", "gl", "inst", "ag", "ai"];
-
     function createTextBox(text, boxWidth, boxHeight, text_type) {
         const textBox = document.createElement('div');
         // add text font size
@@ -291,9 +286,13 @@ cellpadding="0"><tr><td>
         textContent.style.fontSize = "12px";
         if (text_type == "inst" || text_type == "ai")
             textContent.style.fontSize = "11px";
+        if (text_type == "name")
+            textContent.style.fontSize = "16px";
 
         // add padding of 4px
         textBox.style.padding = "8px";
+        if (text_type == 'name')
+            textBox.style.padding = "2px";
         return textBox;
     }
     function createImageBox(src, boxWidth, boxHeight) {
@@ -304,15 +303,40 @@ cellpadding="0"><tr><td>
         img.style.margin = '0 auto'; // Align the text box to the center horizontally
         return img
     }
-    var taskData = ['RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it', 'RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven', 'RW7_put_the_book_in_the_back_compartment_of_the_caddy']
+    function grabLanguageFromFilename(x) {
+        var language;
+        if (x[0] === x[0].toUpperCase()) { // Equivalent to x[0].isupper() in Python
+            if (x.includes("EVAL")) {
+                language = x.substring(x.indexOf("EVAL") + 6).split("_").join(" ");
+                console.assert(language[0] !== " ");
+            } else if (x.startsWith("RW")) {
+                language = x.substring(x.indexOf("RW") + 4).split("_").join(" ");
+            } else if (x.includes("SCENE10")) {
+                language = x.substring(x.indexOf("SCENE") + 8).split("_").join(" ");
+            } else {
+                language = x.substring(x.indexOf("SCENE") + 7).split("_").join(" ");
+            }
+        } else {
+            language = x.split("_").join(" ");
+        }
+        return language;
+    }
+    // var taskData = ['RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it', 'RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven', 'RW7_put_the_book_in_the_back_compartment_of_the_caddy']
+    // var taskData = ['KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it', 'LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket', 'KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it']
+    var tasks_all = ['RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it', 'RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven', 'RW7_put_the_book_in_the_back_compartment_of_the_caddy', 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it', 'LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket', 'KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it']
+    // refresh var taskData from the 6 options everytime I refresh
+    // select 3 random tasks from the 6 options in tasks_all
+    var taskData = tasks_all.sort(() => Math.random() - Math.random()).slice(0, 3);
+    const taskTypes = ["name", "robot", "vid", "img", "gl", "inst", "ag", "ai"];
     var tableData = [
+      ['Task Name', '', '', ''],
       ['Robot Execution', '', '', ''],
       ['Video\nDemonstration', '', '', ''],
       ['Image Goals', '', '', ''],
       ['Text Goals', 'Text Goals Key1', 'Text Goals Key2', 'Text Goals Key3'],
       ['Text\nInstructions', 'Text Instructions Key 1', 'Text Instructions Key 2', 'Text Instructions Key 3'],
       ['Speech Goals', 'Speech Goals 1', 'Speech Goals 2', 'Speech Goals 3'],
-      ['Speech\nInstructions', 'Speech Instructions 1', 'Speech Instruction 2', 'Speech Instructions 3'],
+      ['Speech\nInstructions', 'Speech Instructions 1', 'Speech Instruction 2', 'Speech Instructions 3']
     ];
     var jsonData = {
       "RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it": {
@@ -332,6 +356,24 @@ cellpadding="0"><tr><td>
           "ai": "Identify the book and open your gripper to the right width. Move your gripper to the book and grasp it firmly. Locate the back compartment of the caddy. Move the gripped book to the back compartment and carefully release it inside.",
           "gl": "The book can be found in the rear section of the caddy.",
           "inst": "1. Discover the targeted book and set your gripper to the appropriate amplitude.\n2. Smoothly guide your gripper in the direction of the book and snatch it firmly.\n3. Search for the back section of the caddy.\n4. Move the held book towards the back section and lightly deposit it inside."
+      },
+      'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it': {
+            "ag": "The moka pot is on the stove, and it's heating up.",
+            "ai": "Carefully hold the knob and switch it to the 'on' position for the burner. Look around to find the Moka pot. Grab it by the handle and lift it up. Place the Moka pot over the stove and lower it until it sits securely on the surface. Now, feel free to let go of the handle.",
+            "gl": "The stove is switched on, and the moka pot has been placed on it.",
+            "inst": "1. Please kindly take hold of the control knob and swivel it to the correct 'on' setting for the burner.\n2. Carefully approach the Moka pot’s location.\n3. Grasp its handle to pick it up from where it’s resting.\n4. Guide it toward the stove while holding it securely above, and then gently let it settle on the stove’s surface.\n5. Finally, withdraw your hand from holding the Moka Pot."
+      },
+      'LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket': {
+            "ag": "Please find the alphabet soup and the cream cheese box in the basket.",
+            "ai": "Please grab the alphabet soup and move it from its current spot. Stand close to the basket. Gently slide the alphabet soup package into the basket. Let go of the alphabet soup package. Now, pick up the cream cheese container and lift it from where it is. Move toward the basket. Slowly place the cream cheese container inside the basket. Release your grip on the cream cheese container.",
+            "gl": "Kindly check the basket for the wordy soup and the cream cheese container.",
+            "inst": "1. Kindly hold the alphabet soup and separate it from its existing location.\n2. Steer toward the basket.\n3. Deliberately lower the alphabet soup container within the basket.\n4. Loosen your grip from the alphabet soup container.\n5. Pick up the cream cheese box and remove it from its present position.\n6. Stand by the basket.\n7. Gently place the cream cheese box into the basket.\n8. Free your hand from the cream cheese box."
+      },
+      'KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it': {
+            "ag": "Put the off-white mug in the microwave and make sure the door is fully closed.",
+            "ai": "Kindly grab the yellow and white mug in front of you. Please place it inside and close the door securely before releasing your grip.",
+            "gl": "The pastel-yellow cup is placed in the microwave and the door is tightly closed.",
+            "inst": "1. Kindly hold the yellow and white mug, removing it from the position it rests upon.\n2. Situate the mug on the designated area inside.\n3. Ensure the microwave door is fully shut and let go of the cup."
       }
     };
     var tableBody = document.querySelector('#myTable tbody');
@@ -363,13 +405,15 @@ cellpadding="0"><tr><td>
               textbox.appendChild(lineDiv);
             });
 
-            // Create the image box
-            const imageSource = 'src/icons/' + taskTypes[i] + '_icon.png';
-            const img = createImageBox(imageSource, 0.4*boxWidth, 0.4*boxWidth);
-
-            // Append the image box and textbox to the container
             container.appendChild(textbox);
-            container.appendChild(img);
+            // if taskType is name, then no image is needed
+            if (taskTypes[i] != 'name') {
+                // Create the image box
+                const imageSource = 'src/icons/' + taskTypes[i] + '_icon.png';
+                const img = createImageBox(imageSource, 0.4*boxWidth, 0.4*boxWidth);
+                // Append the image box and textbox to the container
+                container.appendChild(img);
+            }
 
             // Append the container to the cell
             cell.appendChild(container);
@@ -415,13 +459,13 @@ cellpadding="0"><tr><td>
             else if (taskType == 'gl') {
 
                 tableData[i][j] = jsonData[taskKey][taskType];
-                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight-50, text_type=taskType);
+                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight-60, text_type=taskType);
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
                 cell.appendChild(textBox);
             }
             else if (taskType == 'inst') {
                 tableData[i][j] = jsonData[taskKey][taskType];
-                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+40, text_type=taskType);
+                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+120, text_type=taskType);
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
                 cell.appendChild(textBox);
             }
@@ -431,10 +475,10 @@ cellpadding="0"><tr><td>
 
                 tableData[i][j] = jsonData[taskKey][taskType];
                 if (taskType == 'ag') {
-                    var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight, text_type=taskType);
+                    var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight-60, text_type=taskType);
                 }
                 else {
-                    var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+38, text_type=taskType);
+                    var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+58, text_type=taskType);
                 }
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
                 container.appendChild(textBox);
@@ -457,6 +501,25 @@ cellpadding="0"><tr><td>
                 audio.style.transform = 'translateX(-50%)';
 
                 cell.appendChild(container);
+            }
+            else if (taskType == 'name') {
+                // add the name of the task
+                // task_name is found by this python code: ' '.join(taskKey.split('_')[1:])
+                // convert it to javascript
+                var task_name = grabLanguageFromFilename(taskKey);
+                var textBox = createTextBox(task_name, boxWidth+68, boxHeight-40, text_type=taskType);
+                textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
+                // remove the border from the text box
+                textBox.style.border = 'none';
+                // make the text box background ligth grey
+                // textBox.style.backgroundColor = '#f2f2f2';
+                // amake the text box font size larger than x-large and text box fit the text
+                textBox.style.fontSize = 'xx-large';
+                textBox.style.width = 'fit-content';
+                // make text content centered from top to bottom
+                textBox.style.display = 'flex';
+
+                cell.appendChild(textBox);
             }
         }
         row.appendChild(cell);
