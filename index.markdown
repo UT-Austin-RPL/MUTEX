@@ -459,7 +459,7 @@ cellpadding="0"><tr><td>
             else if (taskType == 'gl') {
 
                 tableData[i][j] = jsonData[taskKey][taskType];
-                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight-60, text_type=taskType);
+                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight-40, text_type=taskType);
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
                 cell.appendChild(textBox);
             }
