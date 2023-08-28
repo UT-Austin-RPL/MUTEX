@@ -248,7 +248,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
     <table border="0" cellspacing="10" cellpadding="0" align="center">
         <tbody><tr><td>
             <p align="justify" width="20%">
-                    We provide a dataset comprising <strong>100 simulated tasks</strong> based on <a href="https://arxiv.org/abs/2306.03310">LIBERO-100</a> and <strong>50 real-world</strong> tasks, annotated with <strong>50</strong> and <strong>30</strong> demonstrations per task (row following Task Name), respectively. We annotate each task with <strong>ten</strong> alternative task specifications in each of the <strong>six</strong> following modalities (rows from top to bottom): video demonstration, image goal, text instructions, text goal, speech instructions, and speech goal.
+                    We provide a dataset comprising <strong>100 simulated tasks</strong> based on <a href="https://arxiv.org/abs/2306.03310">LIBERO-100</a> and <strong>50 real-world</strong> tasks, annotated with <strong>50</strong> and <strong>30</strong> demonstrations per task (row following Task Name), respectively. We annotate each task with <strong>ten</strong> alternative task specifications in each of the <strong>six</strong> following modalities (rows from top to bottom): video demonstration, image goal, text goal, text instructions, speech goal, and speech instructions.
             </p>
         </td></tr></tbody>
     </table>
