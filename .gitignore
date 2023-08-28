@@ -1,3 +1,5 @@
+*.avi
+*_cp.mp4
 .jekyll-cache/*
 .jekyll-metadata*
 _site/*

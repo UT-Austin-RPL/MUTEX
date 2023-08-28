@@ -104,21 +104,27 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
 <body data-gr-c-s-loaded="true">
 
 <div id="primarycontent">
-<center><h1><strong>MUTEX: Learning Unified Policies from Multimodal Task Specifications</strong></h1></center>
-<center><h2>
-    <a href="https://shahrutav.github.io/">Rutav Shah</a>&nbsp;&nbsp;&nbsp;
-    <a href="https://robertomartinmartin.com/">Roberto Martín-Martín</a>&nbsp;&nbsp;&nbsp;
-    <a href="https://cs.utexas.edu/~yukez">Yuke Zhu</a>&nbsp;&nbsp;&nbsp;
-   </h2>
-    <center><h2>
-        <a href="https://www.cs.utexas.edu/">The University of Texas at Austin</a>&nbsp;&nbsp;&nbsp;
-    </h2></center>
+<center>
+    <h1 style="white-space: nowrap;"><strong>MUTEX: Learning Unified Policies from Multimodal Task Specifications</strong></h1>
+</center>
+<center>
+    <h2>
+        <a href="https://shahrutav.github.io/">Rutav Shah</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://robertomartinmartin.com/">Roberto Martín-Martín</a><sup>*</sup>&nbsp;&nbsp;&nbsp;
+        <a href="https://cs.utexas.edu/~yukez">Yuke Zhu</a><sup>*</sup>&nbsp;&nbsp;&nbsp;
+    </h2>
+    <!-- Make the text very small -->
+    <h2 style="font-size: 18px;">
+        <sup>*</sup> Equal Advising
+    </h2>
+    <h2>
+        <a href="https://www.cs.utexas.edu/">The University of Texas at Austin</a>
+    </h2>
+</center>
 <center><h2>
         Under Review&nbsp;&nbsp;&nbsp;
     </h2></center>
 	<!-- <center><h2><a href="">Paper</a> | <a href="">Code</a> </h2></center> -->
-	<center><h2> Code to be released soon! </h2></center>
-
 
 <p>
 <div width="500"><p>
@@ -180,15 +186,15 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
                     </tr>
                 </tbody>
             </table>
-    <table width=800px>
-        <tr>
-            <td>
-                <p align="justify" width="20%">
-                Task specifications in each modality are encoded with pretrained modality-specific encoders. During the first stage of training, one or more of these modalities are randomly selected and masked before being passed to projection layers and input to Mutex's transformer encoder. The resultant tokens are combined with observation tokens through N blocks of self- and cross-attention layers. The hidden state of the encoder is passed to Mutex's transformer encoder that is queried for actions (behavior learning loss) and the masked features and tokens (masked modeling loss), promoting action-specific cross-modal learning. In the second stage of training, all modalities are enriched with information from video features through a cross-modal matching loss. At test time, observations and a task specification of one modality are provided, based on which Mutex predicts closed-loop actions to achieve the task.
-                </p>
-            </td>
-        </tr>
-    </table>
+            <table border="0" cellspacing="10" cellpadding="0" align="center">
+                <tr>
+                    <td>
+                        <p>
+                            Task specifications in each modality are encoded with pretrained modality-specific encoders. During the first stage of training, one or more of these modalities are randomly selected and masked before being passed to projection layers and input to Mutex's transformer encoder. The resultant tokens are combined with observation tokens through N blocks of self- and cross-attention layers. The hidden state of the encoder is passed to Mutex's transformer encoder that is queried for actions (behavior learning loss) and the masked features and tokens (masked modeling loss), promoting action-specific cross-modal learning. In the second stage of training, all modalities are enriched with information from video features through a cross-modal matching loss. At test time, observations and a task specification of one modality are provided, based on which Mutex predicts closed-loop actions to achieve the task.
+                        </p>
+                    </td>
+                </tr>
+            </table>
 <br>
 <hr>
 <h1 align="center">Simulation and Real-World Results</h1>
@@ -225,29 +231,29 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
 
 <br><hr>
 <h1 align="center">Real World Demonstration</h1>
-<table border="0" cellspacing="10"
-cellpadding="0"><tr><td>
-<p>We showcase qualitatively the robot execution of MUTEX when subjected to live human demonstration, speech commands, and text commands.</p>
-</td></tr></table>
-
 <table border="0" cellspacing="10" cellpadding="0" align="center">
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/hyiDor1mdOw?si=0JYGpU9ziAXuqYI_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      </td>
-    </tr>
-  </tbody>
+    <tr><td>
+        <p>We showcase qualitatively the robot execution of MUTEX when subjected to live human demonstration, speech commands, and text commands.</p>
+    </td></tr>
+    <td align="center" valign="middle">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-HH-PoWi9lc?si=kj9CKpNt1CEDTajt" title="YouTube video player" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen=""></iframe>
+    </td>
 </table>
-
-
-<br><hr>
-<!-- <h1 align="center">MUTEX Dataset Visualization <button onclick="location.reload();">Reload Page</button></h1> -->
-  <th>[Press Reload to change the tasks]</th>
+<hr>
+  <div align="center">
+    <p>[Press Reload to change the tasks]</p>
+  </div>
   <h1 align="center">MUTEX Dataset Visualization <button onclick="location.reload();" style="background: none; border: none; cursor: pointer;"><img src="src/reload.png" alt="Reload Page" style="vertical-align: middle; width: 30px; height: 30px;"></button></h1>
-  <table id="myTable">
+    <!-- Add a text describing the dataset details-->
+    <table border="0" cellspacing="10" cellpadding="0" align="center">
+        <tbody><tr><td>
+            <p align="justify" width="20%">
+                    We provide a dataset comprising <strong>100 simulated tasks</strong> based on <a href="https://arxiv.org/abs/2306.03310">LIBERO-100</a> and <strong>50 real-world</strong> tasks, annotated with <strong>50</strong> and <strong>30</strong> demonstrations per task (row following Task Name), respectively. We annotate each task with <strong>ten</strong> alternative task specifications in each of the <strong>six</strong> following modalities (rows from top to bottom): video demonstration, image goal, text instructions, text goal, speech instructions, and speech goal.
+            </p>
+        </td></tr></tbody>
+    </table>
+  <br>
+  <table id="myTable" border="0" cellspacing="10" cellpadding="0" align="center">
     <tbody></tbody>
   </table>
 
@@ -321,13 +327,11 @@ cellpadding="0"><tr><td>
     // var taskData = ['RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it', 'RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven', 'RW7_put_the_book_in_the_back_compartment_of_the_caddy']
     // var taskData = ['KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it', 'LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket', 'KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it']
     var tasks_all = ['RW6_open_the_air_fryer_and_put_the_bowl_with_hot_dogs_in_it', 'RW5_put_the_bread_on_oven_tray_and_push_it_in_the_oven', 'RW7_put_the_book_in_the_back_compartment_of_the_caddy', 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it', 'LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket', 'KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it']
-    // refresh var taskData from the 6 options everytime I refresh
-    // select 3 random tasks from the 6 options in tasks_all
     var taskData = tasks_all.sort(() => Math.random() - Math.random()).slice(0, 3);
     const taskTypes = ["name", "robot", "vid", "img", "gl", "inst", "ag", "ai"];
     var tableData = [
       ['Task Name', '', '', ''],
-      ['Robot Execution', '', '', ''],
+      ['Robot Demonstration', '', '', ''],
       ['Video\nDemonstration', '', '', ''],
       ['Image Goals', '', '', ''],
       ['Text Goals', 'Text Goals Key1', 'Text Goals Key2', 'Text Goals Key3'],
@@ -461,10 +465,14 @@ cellpadding="0"><tr><td>
                 cell.appendChild(textBox);
             }
             else if (taskType == 'inst') {
+                var container = document.createElement('div');
+                container.style.position = 'relative';
+
                 tableData[i][j] = jsonData[taskKey][taskType];
-                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+120, text_type=taskType);
+                var textBox = createTextBox(tableData[i][j], boxWidth+68, boxHeight+140, text_type=taskType);
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
-                cell.appendChild(textBox);
+                container.appendChild(textBox);
+                cell.appendChild(container);
             }
             else if (taskType == 'ag' || taskType == 'ai') {
                 var container = document.createElement('div');
@@ -480,6 +488,7 @@ cellpadding="0"><tr><td>
                 textBox.style.margin = '0 auto'; // Align the text box to the center horizontally
                 container.appendChild(textBox);
                 // add some blank space between the text box and the audio box
+                container.appendChild(document.createElement('br'));
                 container.appendChild(document.createElement('br'));
 
                 // add audio to the text box with the audio file
