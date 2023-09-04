@@ -132,7 +132,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
                 <tr>
                     <td>
 <p align="justify" width="20%">
- Humans communicate the goal of a task to their team partners using different modalities: speech, text, images... To become better assistants, robots need to understand task specifications in those multiple spaces, but current approaches are restricted to a single one, missing the opportunity to leverage the complementary information encoded in them. We present MUTEX, a novel approach to learning unified policies from multimodal task specifications that leverages cross-modal information thanks to its two-stage training procedure combining masked modeling and cross-modal matching, and its novel architecture based on transformers.  After training, MUTEX can follow a task specification in any of the six learned modalities (video demonstrations, goal images, text goal descriptions, text instructions, speech goal descriptions, and speech instructions), or combinations of specifications in several of them. We train and evaluate empirically the benefits of MUTEX in a novel dataset with 100 tasks in simulation and 50 tasks in the real world, annotated with multiple instances of task specifications in the six modalities, and observe improved performance over methods trained specifically for every single modality.
+ Humans communicate the goal of a task to their team partners using different modalities: speech, text, images, and videos. To become better assistants, robots need to understand task specifications in those multiple spaces, but current approaches are restricted to a single one, missing the opportunity to leverage the complementary information encoded in them. We present MUTEX, a novel approach to learning unified policies from multimodal task specifications that leverages cross-modal information thanks to its two-stage training procedure combining masked modeling and cross-modal matching using transformer-based architecture. After training, MUTEX can follow a task specification in any of the six learned modalities (video demonstrations, goal images, text goal descriptions, text instructions, speech goal descriptions, and speech instructions) or several combinations of specifications. We train and empirically evaluate the benefits of MUTEX in a novel dataset with 100 tasks in simulation and 50 tasks in the real world, annotated with multiple instances of task specifications in the six modalities, and observe improved performance over methods trained specifically for every single modality.
 </p></td></tr></table>
 </p>
   </div>
@@ -218,26 +218,62 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
     </td></tr></tbody>
 </table>
 
-<!-- <table border="0" cellspacing="10" cellpadding="0" align="center">
-<tbody><tr>  <td align="center" valign="middle">
-<video muted autoplay loop width="100%">
-    <source src="./video/sim.mp4"  type="video/mp4">
-</video>
-</td>
-</tr>
-
-</tbody>
-</table>-->
-
 <br><hr>
 <h1 align="center">Real World Demonstration</h1>
 <table border="0" cellspacing="10" cellpadding="0" align="center">
-    <tr><td>
-        <p>We showcase qualitatively the robot execution of MUTEX when subjected to live human demonstration, speech commands, and text commands.</p>
-    </td></tr>
     <td align="center" valign="middle">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-HH-PoWi9lc?si=kj9CKpNt1CEDTajt" title="YouTube video player" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen=""></iframe>
+        <!-- add the 6 vidoes in the directory src/rw_demo with title with play on click-->
+        <!-- The six videos must be arranged in 2x3 grid -->
+        <table>
+          <tr>
+            <td>
+                <video width="260" height="146.25" controls poster="src/thumbnails/vid_thumbnail.png" style="margin-right: 10px; border: 0px solid #008BC6;">
+                  <source src="src/rw_demo/video_demo_vid_reduced.mp4" type="video/mp4">
+                </video>
+                <p style="text-align: center; color: #008BC6;">Human Video Demonstration</p>
+            </td>
+            <td>
+              <video width="260" height="146.25" controls poster="src/thumbnails/gl_thumbnail.png" style="margin-right: 10px;">
+                <source src="src/rw_demo/text_goal_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #DF9039;">Text Goal</p>
+            </td>
+            <td>
+              <video width="260" height="146.25" controls poster="src/thumbnails/ag_thumbnail.png">
+                <source src="src/rw_demo/speech_goal_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #838CD8;">Speech Goal</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <video width="260" height="146.25" controls poster="src/thumbnails/inst_thumbnail.png" style="margin-right: 10px;">
+                <source src="src/rw_demo/text_inst_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #275D54;">Text Instructions</p>
+            </td>
+            <td>
+              <video width="260" height="146.25" controls poster="src/thumbnails/ai_thumbnail.png" style="margin-right: 10px;">
+                <source src="src/rw_demo/speech_inst_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #425C6B;">Speech Instructions</p>
+            </td>
+            <td>
+              <video width="260" height="146.25" controls poster="src/thumbnails/img_thumbnail.png">
+                <source src="src/rw_demo/image_goal_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #D15C46;">Image Goal</p>
+            </td>
+          </tr>
+        </table>
     </td>
+</table>
+<table border="0" cellspacing="10" cellpadding="0" align="center">
+    <tbody><tr><td>
+        <p align="justify" width="20%">
+            MUTEX can execute tasks specified by humans in any of the six modalities: <span style="color: #008BC6;"><strong>human video demonstrations</strong></span>, <span style="color: #275D54;"><strong>text instructions</strong></span>, <span style="color: #DF9039;"><strong>text goals</strong></span>, <span style="color: #425C6B;"><strong>speech instructions</strong></span>, <span style="color: #838CD8;"><strong>speech goals</strong></span>, and <span style="color: #D15C46;"><strong>image goals</strong></span>. To demonstrate the capabilities and robustness of MUTEX, we qualitatively evaluate MUTEX in the real world when a human specifies the tasks live through one of the modalities.
+        </p>
+    </td></tr></tbody>
 </table>
 <hr>
   <div align="center">

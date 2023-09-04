@@ -1,6 +1,8 @@
 #!/bin/bash
 
-input_file="video/rw_vid.mov"
-output_file="video/rw_vid_10.mov"
-
-ffmpeg -i "$input_file" -vf "scale=iw*0.1:-1" -c:v libx264 -crf 30 "$output_file"
+# for all videos src/rw_demo reduce the quality of the video by 50%
+# save with a new name in the same directory replacing .mp4 with _reduced.mp4
+for i in src/rw_demo/*.mp4; do
+    output=$(echo $i | sed 's/.mp4/_reduced.mp4/')
+    ffmpeg -n -i $i -vf scale=iw/2:-1 $output
+done
