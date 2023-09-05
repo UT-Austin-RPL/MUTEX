@@ -233,20 +233,6 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
                 <p style="text-align: center; color: #008BC6;">Human Video Demonstration</p>
             </td>
             <td>
-              <video width="380" height="213.75" controls poster="src/thumbnails/gl_thumbnail.png" style="margin-right: 10px;">
-                <source src="src/rw_demo/text_goal_vid_reduced.mp4" type="video/mp4">
-              </video>
-              <p style="text-align: center; color: #DF9039;">Text Goal</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <video width="380" height="213.75" controls poster="src/thumbnails/ag_thumbnail.png">
-                <source src="src/rw_demo/speech_goal_vid_reduced.mp4" type="video/mp4">
-              </video>
-              <p style="text-align: center; color: #838CD8;">Speech Goal</p>
-            </td>
-            <td>
               <video width="380" height="213.75" controls poster="src/thumbnails/inst_thumbnail.png" style="margin-right: 10px;">
                 <source src="src/rw_demo/text_inst_vid_reduced.mp4" type="video/mp4">
               </video>
@@ -255,10 +241,24 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
           </tr>
           <tr>
             <td>
+              <video width="380" height="213.75" controls poster="src/thumbnails/gl_thumbnail.png" style="margin-right: 10px;">
+                <source src="src/rw_demo/text_goal_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #DF9039;">Text Goal</p>
+            </td>
+            <td>
               <video width="380" height="213.75" controls poster="src/thumbnails/ai_thumbnail.png" style="margin-right: 10px;">
                 <source src="src/rw_demo/speech_inst_vid_reduced.mp4" type="video/mp4">
               </video>
               <p style="text-align: center; color: #425C6B;">Speech Instructions</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <video width="380" height="213.75" controls poster="src/thumbnails/ag_thumbnail.png">
+                <source src="src/rw_demo/speech_goal_vid_reduced.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center; color: #838CD8;">Speech Goal</p>
             </td>
             <td>
               <video width="380" height="213.75" controls poster="src/thumbnails/img_thumbnail.png">
