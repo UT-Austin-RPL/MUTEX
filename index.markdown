@@ -122,7 +122,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
     </h2>
 </center>
 <center><h2>
-        Under Review&nbsp;&nbsp;&nbsp;
+        To be presented at CoRL'23&nbsp;&nbsp;&nbsp;
     </h2></center>
 	<!-- <center><h2><a href="">Paper</a> | <a href="">Code</a> </h2></center> -->
 
@@ -165,7 +165,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
     <tr>
         <td>
             <p align="justify" width="20%">
-                We introduce MUTEX, a unified policy that learns to perform tasks based on task specifications in multiple modalities: text, image, video, and speech, including instructions and goal descriptions. Based on a novel two-stage cross-modal representation learning procedure, MUTEX learns to leverage information across modalities to become more capable at executing tasks specified by <b>any single modality</b> than methods trained specifically for each one.
+                We introduce MUTEX, a unified policy that learns to perform tasks based on task specifications in multiple modalities: image, video, text, and speech, in the form of instructions and goal descriptions. Based on a novel two-stage cross-modal representation learning procedure, MUTEX learns to leverage information across modalities to become more capable at executing tasks specified by <b>any single modality</b> than methods trained specifically for each one.
             </p>
         </td>
     </tr>
@@ -284,7 +284,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
     <table border="0" cellspacing="10" cellpadding="0" align="center">
         <tbody><tr><td>
             <p align="justify" width="20%">
-                    We provide a dataset comprising <strong>100 simulated tasks</strong> based on <a href="https://arxiv.org/abs/2306.03310">LIBERO-100</a> and <strong>50 real-world</strong> tasks, annotated with <strong>50</strong> and <strong>30</strong> demonstrations per task (row following Task Name), respectively. We annotate each task with <strong>ten</strong> alternative task specifications in each of the <strong>six</strong> following modalities (rows from top to bottom): video demonstration, image goal, text goal, text instructions, speech goal, and speech instructions.
+                    We provide a dataset comprising <strong>100 simulated tasks</strong> based on <a href="https://arxiv.org/abs/2306.03310">LIBERO-100</a> and <strong>50 real-world</strong> tasks, annotated with <strong>50</strong> and <strong>30</strong> demonstrations per task (row following Task Name), respectively. We annotate each task with <strong>eleven</strong> alternative task specifications in each of the <strong>six</strong> following modalities (rows from top to bottom): video demonstration, image goal, text goal, text instructions, speech goal, and speech instructions.
             </p>
         </td></tr></tbody>
     </table>
