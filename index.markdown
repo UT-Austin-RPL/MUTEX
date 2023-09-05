@@ -227,39 +227,41 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
         <table>
           <tr>
             <td>
-                <video width="260" height="146.25" controls poster="src/thumbnails/vid_thumbnail.png" style="margin-right: 10px; border: 0px solid #008BC6;">
+                <video width="380" height="213.75" controls poster="src/thumbnails/vid_thumbnail.png" style="margin-right: 10px; border: 0px solid #008BC6;">
                   <source src="src/rw_demo/video_demo_vid_reduced.mp4" type="video/mp4">
                 </video>
                 <p style="text-align: center; color: #008BC6;">Human Video Demonstration</p>
             </td>
             <td>
-              <video width="260" height="146.25" controls poster="src/thumbnails/gl_thumbnail.png" style="margin-right: 10px;">
+              <video width="380" height="213.75" controls poster="src/thumbnails/gl_thumbnail.png" style="margin-right: 10px;">
                 <source src="src/rw_demo/text_goal_vid_reduced.mp4" type="video/mp4">
               </video>
               <p style="text-align: center; color: #DF9039;">Text Goal</p>
             </td>
+          </tr>
+          <tr>
             <td>
-              <video width="260" height="146.25" controls poster="src/thumbnails/ag_thumbnail.png">
+              <video width="380" height="213.75" controls poster="src/thumbnails/ag_thumbnail.png">
                 <source src="src/rw_demo/speech_goal_vid_reduced.mp4" type="video/mp4">
               </video>
               <p style="text-align: center; color: #838CD8;">Speech Goal</p>
             </td>
-          </tr>
-          <tr>
             <td>
-              <video width="260" height="146.25" controls poster="src/thumbnails/inst_thumbnail.png" style="margin-right: 10px;">
+              <video width="380" height="213.75" controls poster="src/thumbnails/inst_thumbnail.png" style="margin-right: 10px;">
                 <source src="src/rw_demo/text_inst_vid_reduced.mp4" type="video/mp4">
               </video>
               <p style="text-align: center; color: #275D54;">Text Instructions</p>
             </td>
+          </tr>
+          <tr>
             <td>
-              <video width="260" height="146.25" controls poster="src/thumbnails/ai_thumbnail.png" style="margin-right: 10px;">
+              <video width="380" height="213.75" controls poster="src/thumbnails/ai_thumbnail.png" style="margin-right: 10px;">
                 <source src="src/rw_demo/speech_inst_vid_reduced.mp4" type="video/mp4">
               </video>
               <p style="text-align: center; color: #425C6B;">Speech Instructions</p>
             </td>
             <td>
-              <video width="260" height="146.25" controls poster="src/thumbnails/img_thumbnail.png">
+              <video width="380" height="213.75" controls poster="src/thumbnails/img_thumbnail.png">
                 <source src="src/rw_demo/image_goal_vid_reduced.mp4" type="video/mp4">
               </video>
               <p style="text-align: center; color: #D15C46;">Image Goal</p>
