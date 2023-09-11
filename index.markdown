@@ -181,7 +181,10 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
                 <tbody>
                     <tr>
                         <td align="center" valign="middle">
-                            <a href="./src/pipeline.png"> <img src="./src/pipeline.png" style="width:100%;"> </a>
+                            <!-- add a video with thumbnail here -->
+                            <video muted controls poster="src/architecture/Mutex_Architecture_thumbnail.png" width="100%">
+                                <source src="src/architecture/Mutex_Architecture.mp4"  type="video/mp4">
+                            </video>
                         </td>
                     </tr>
                 </tbody>
