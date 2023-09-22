@@ -6,7 +6,7 @@ categories: projects
 
 <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Mutex</title>
+<title>MUTEX</title>
 
 
 <!-- <meta property="og:image" content="images/teaser_fb.jpg"> -->
@@ -199,7 +199,7 @@ Humans use different modalities, such as speech, text, images, videos, etc., to 
                 <tr>
                     <td>
                         <p>
-                            Task specifications in each modality are encoded with pretrained modality-specific encoders. During the first stage of training, one or more of these modalities are randomly selected and masked before being passed to projection layers and input to Mutex's transformer encoder. The resultant tokens are combined with observation tokens through N blocks of self- and cross-attention layers. The hidden state of the encoder is passed to Mutex's transformer encoder that is queried for actions (behavior learning loss) and the masked features and tokens (masked modeling loss), promoting action-specific cross-modal learning. In the second stage of training, all modalities are enriched with information from video features through a cross-modal matching loss. At test time, observations and a task specification of one modality are provided, based on which Mutex predicts closed-loop actions to achieve the task.
+                            Task specifications in each modality are encoded with pretrained modality-specific encoders. During the first stage of training, one or more of these modalities are randomly selected and masked before being passed to projection layers and input to MUTEX's transformer encoder. The resultant tokens are combined with observation tokens through N blocks of self- and cross-attention layers. The hidden state of the encoder is passed to MUTEX's transformer encoder that is queried for actions (behavior learning loss) and the masked features and tokens (masked modeling loss), promoting action-specific cross-modal learning. In the second stage of training, all modalities are enriched with information from video features through a cross-modal matching loss. At test time, observations and a task specification of one modality are provided, based on which MUTEX predicts closed-loop actions to achieve the task.
                         </p>
                     </td>
                 </tr>
