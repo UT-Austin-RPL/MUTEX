@@ -121,12 +121,17 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
         <a href="https://www.cs.utexas.edu/">The University of Texas at Austin</a>
     </h2>
 </center>
-<center>
-    <h2>
-        To be presented at CoRL'23&nbsp;&nbsp;&nbsp;
-    </h2></center>
 	<!-- <center><h2><a href="">Paper</a> | <a href="">Code</a> </h2></center> -->
-	<center><h2><a href="https://utexas.box.com/v/MutexDataset">Dataset</a> | <a href="">Code</a> </h2></center>
+	<center>
+        <h2>
+            <a href="paper/mutex.pdf">Paper</a> | <a href="https://utexas.box.com/v/MutexDataset">Dataset</a> | <a href="https://github.com/UT-Austin-RPL/mutex">Code</a> | <a href="src/bib.txt">Bibtex</a>
+        </h2>
+    </center>
+    <center>
+        <h2>
+            To be presented at CoRL'23&nbsp;&nbsp;&nbsp;
+        </h2>
+    </center>
 <p>
 <div width="500"><p>
   <table align=center width=800px>

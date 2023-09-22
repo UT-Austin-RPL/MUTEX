@@ -1,1 +1,8 @@
-TODO
+@inproceedings{
+    shah2023mutex,
+    title={{MUTEX}: Learning Unified Policies from Multimodal Task Specifications},
+    author={Rutav Shah and Roberto Mart{\'\i}n-Mart{\'\i}n and Yuke Zhu},
+    booktitle={7th Annual Conference on Robot Learning},
+    year={2023}
+    url={}
+}
