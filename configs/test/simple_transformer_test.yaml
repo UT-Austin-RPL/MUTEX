@@ -1,0 +1,4 @@
+# @package _global_
+
+defaults:
+  - override /model@policy: simple_transformer_policy

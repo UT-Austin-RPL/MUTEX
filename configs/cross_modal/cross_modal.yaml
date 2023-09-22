@@ -1,0 +1,26 @@
+ts_mode: train
+cmm_type: epoch_50
+debug: False
+num_gpus: 1
+use_wandb: True
+wandb_mode: online
+wandb_project: mutex
+
+# to replace from cfg.train
+n_epochs: 40
+batch_size: 256
+val_every: 10
+rep_loss_coef: 0.1
+num_workers: 8
+sg_gt_rep: True
+add_cross_modal_layers: True
+
+# to replace from cfg.optimizer.
+lr: 0.0001
+
+experiment_dir:
+device: "cuda:0"
+benchmark_name:
+folder: dataset-path
+bddl_folder: "LIBERO/libero/libero/bddl_files/"
+init_states_folder: "LIBERO/libero/libero/init_files/"

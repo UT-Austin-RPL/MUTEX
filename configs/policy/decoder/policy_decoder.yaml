@@ -1,0 +1,20 @@
+network: TransformerCrossDecoder
+network_kwargs:
+    input_size:
+    output_size:
+    depth: 3 # 3 self-attention blocks
+    num_heads: 8
+    mlp_ratio: 4.0
+    qkv_bias: True
+    qk_scale:
+    drop_rate: 0.1
+    attn_drop_rate: 0.1
+    perceiver_ct_index: [0, 1, 2] # 3 cross-attention blocks
+    norm_layer:
+    num_action_q: 10
+    max_text_q: 25 ## Might change this later
+    max_region_q: 50
+    max_frame_q: 32
+    max_instruct_q: 10
+    query_drop: True
+    query_norm:

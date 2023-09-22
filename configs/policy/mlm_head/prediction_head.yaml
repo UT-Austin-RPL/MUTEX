@@ -1,0 +1,7 @@
+network: MLMHead
+
+network_kwargs:
+    hidden_size: 1024
+    mlm_loss_weight: 0.5
+    anneal_factor: 0.1
+    anneal_every_n_epochs: 10

@@ -1,0 +1,18 @@
+network: PerceiverMultiModal
+network_kwargs:
+    input_size:
+    output_size:
+    depth: 6
+    num_heads: 8
+    mlp_ratio: 4.0
+    qkv_bias: True
+    qk_scale:
+    drop_rate: 0.2
+    attn_drop_rate: 0.2
+    drop_path_rate: 0.0
+    perceiver_ct_index: [0,2,4]
+    norm_layer:
+    latent_size_n: 8
+    layer_drop: False
+    max_frames: 64
+    output_type: mean

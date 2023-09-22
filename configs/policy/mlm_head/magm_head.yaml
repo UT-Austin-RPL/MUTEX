@@ -1,0 +1,8 @@
+network: MAGMHead
+
+network_kwargs:
+    input_size:
+    output_size: 768
+    magm_loss_weight: 0.5
+    anneal_factor: 1.0
+    anneal_every_n_epochs: 10

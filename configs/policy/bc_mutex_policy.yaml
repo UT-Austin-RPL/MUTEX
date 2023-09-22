@@ -1,0 +1,47 @@
+policy_type: BCMutexPolicy
+add_mlm: False
+add_mfm: False
+add_mrm: False
+add_mgm: False
+add_mim: False
+add_maim: False
+add_magm: False
+num_task_frames: 16
+slice_model_ind: 23
+task_spec_modalities: gl_inst_img_vid_ai_ag
+extra_num_layers: 0
+extra_hidden_size: 128
+embed_size: 64
+use_film: False
+add_extra_mlp: True
+add_rep_loss: False
+rep_loss_coef: 0.1
+sg_gt_rep: False  # if True, stops gradients for the video representations.
+
+transformer_input_size:
+transformer_context_size:
+transformer_num_layers: 5
+transformer_num_heads: 6
+transformer_head_output_size: 64
+transformer_mlp_hidden_size: 256
+transformer_dropout: 0.1
+transformer_attn_dropout: 0.1
+transformer_cross_attn_ind: [0, 2, 4]
+transformer_max_seq_len: 10
+
+
+defaults:
+    - data_augmentation@color_aug: batch_wise_img_color_jitter_group_aug.yaml
+    - data_augmentation@translation_aug: translation_aug.yaml
+    - image_encoder: resnet_encoder.yaml
+    - projection_layer: ts_encoder.yaml
+    - position_encoding@temporal_position_encoding: sinusoidal_position_encoding.yaml
+    - decoder: policy_decoder.yaml
+    - mlm_head@mlm_head: prediction_head
+    - mlm_head@mim_head: mim_head
+    - mlm_head@mgm_head: mgm_head
+    - mlm_head@mfm_head: mfm_head_l1
+    - mlm_head@mrm_head: mrm_head_l1
+    - mlm_head@maim_head: maim_head_l1
+    - mlm_head@magm_head: magm_head_l1
+    - policy_head: gmm_head.yaml

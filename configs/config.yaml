@@ -1,0 +1,43 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - data: default
+  - policy: bc_mutex_policy
+  - train: default
+  - eval: default
+  - lifelong: multitask
+  - experiment: null
+  - test: null
+
+seed: 1904
+use_wandb: True
+save_ckpt: True
+save_best_model: False
+wandb_project: "kitchen_10"
+wandb_mode: "offline"
+folder: dataset-path
+bddl_folder: "LIBERO/libero/libero/bddl_files/"
+init_states_folder: "LIBERO/libero/libero/init_files/"
+ckpt_dir:
+load_previous_model: false
+device: "cuda:0" ## set the CUDA_VISIBLE_DEVICES correctly
+visual_embedding_format: "clip"
+lang_embedding_format: "clip"
+tokenizer: openai/clip-vit-large-patch14
+lang_tokenizer: openai/clip-vit-large-patch14
+n_ts_per_task: 11
+recalculate_ts_embs: False  # Set this to False to avoid recalculations
+task_embedding_one_hot_offset: 1
+pretrain: false
+pretrain_model_path: ""
+real_robot: False
+num_gpus: 1
+model_type: L1
+
+benchmark_name: "LIBERO_100"
+hydra:
+    job:
+        chdir: true
+    run:
+        dir: ./experiments/${benchmark_name}/${policy.task_spec_modalities}_seed${seed}

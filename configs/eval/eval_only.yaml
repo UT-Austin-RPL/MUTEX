@@ -1,0 +1,16 @@
+model_name:
+save_video: False
+ts_mode: eval
+use_mp: False
+
+experiment_dir:
+device: "cuda"
+benchmark_name:
+folder: dataset-path
+bddl_folder: "LIBERO/libero/libero/bddl_files/"
+init_states_folder: "LIBERO/libero/libero/init_files/"
+eval_spec_modalities:
+task_id: -1  # if task_id is specified, it will only evaluate on that task
+
+n_eval: 20
+num_workers: ${n_eval}

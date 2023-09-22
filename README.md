@@ -1,1 +1,63 @@
-# mutex
+# MUTEX: Learning Unified Policies from Multimodal Task Specifications
+![Image](imgs/figure1.png)   
+[Rutav Shah](https://shahrutav.github.io/), [Roberto Martín-Martín](https://robertomartinmartin.com/)<sup>1</sup>, [Yuke Zhu](https://www.cs.utexas.edu/~yukez/)<sup>1</sup>  
+7th Annual Conference on Robot Learning  
+[[Paper]]()    [[Project Website]](https://ut-austin-rpl.github.io/mutex/)    [[Dataset]]()    [[Real Robot Control]](https://ut-austin-rpl.github.io/deoxys-docs/html/getting_started/overview.html)   
+<sup>1</sup> Equal Advising  
+
+## Setup  
+### Installation
+```
+git clone --recursive https://github.com/UT-Austin-RPL/mutex.git
+cd mutex && git submodule update --init --recursive
+conda create -n mutex python=3.8
+conda activate mutex
+pip install -r requirements.txt
+pip install -e LIBERO/.
+pip install -e .
+```
+### Dataset Installation 
+```
+TODO
+```
+### Pretrained Weights
+```
+```
+
+## Usage
+
+### Training
+MUTEX is trained in two stages: a) Masked Modeling and b) Cross-Modal Matching.  
+
+To run Masked Modeling,
+```
+CUDA_VISIBLE_DEVICES=0 python3 mutex/main_masked_modeling.py \
+        benchmark_name=LIBERO_100 \
+        policy.task_spec_modalities=gl_inst_img_vid_ai_ag \
+        policy.add_mim=True policy.add_mgm=True policy.add_mrm=True \
+        policy.add_mfm=True policy.add_maim=True policy.add_magm=True \
+        folder=dataset-path \
+        hydra.run.dir=experiments/mutex
+```
+To run Cross-Modal Matching,
+```
+CUDA_VISIBLE_DEVICES=0 python3 mutex/main_cmm.py \
+        benchmark_name=LIBERO_100 \
+        folder=dataset-path \
+        experiment_dir=experiments/mutex
+```
+
+### Evaluation
+
+MUTEX is a unified policy capable of executing tasks specified by any modality: video demonstration `vid`, image goal `img`, text goals `gl`, text instructions `inst`, speech goal `ag`, and speech instructions `ai`. To run the model after cross-modal matching at epoch 20 (used in the paper), set `model_name=cmm_LIBERO_100_multitask_model_ep020.pth`.  
+An example with text goal modality is given below,
+```
+MUJOCO_EGL_DEVICE_ID=0 CUDA_VISIBLE_DEVICES=0 python mutex/eval.py \
+        benchmark_name=LIBERO_100 \
+        folder=dataset-path \
+        eval_spec_modalities=gl \
+        experiment_dir=experiments/pretrained_mutex \
+        model_name=mutex_weights.pth
+```
+
+### Acknowledgements: [Mentioned here](acknowledgements.md)

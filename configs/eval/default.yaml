@@ -1,0 +1,20 @@
+load_path: "" # only used when separately evaluating a pretrained model
+eval: false
+batch_size: 64
+num_workers: 4
+n_eval: 20
+eval_every: 5
+max_steps: 600
+use_mp: true
+num_procs: 20
+debug: false
+
+iou_threshold: 0.5 # threshold for IoU computation
+
+visualization: false
+compute_attention: false
+video: false
+save_state: true
+use_spacemouse: false
+video_path: "videos"
+criterion: "success" # success or loss
