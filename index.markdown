@@ -129,7 +129,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
     </center>
     <center>
         <h2>
-            To be presented at CoRL'23&nbsp;&nbsp;&nbsp;
+            Conference on Robot Learning (CoRL), 2023&nbsp;&nbsp;&nbsp;
         </h2>
     </center>
 <p>
