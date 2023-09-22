@@ -290,7 +290,11 @@ Humans use different modalities, such as speech, text, images, videos, etc., to 
   <div align="center">
     <p>[Press Reload to change the tasks]</p>
   </div>
-  <h1 align="center">MUTEX Dataset Visualization <button onclick="location.reload();" style="background: none; border: none; cursor: pointer;"><img src="src/reload.png" alt="Reload Page" style="vertical-align: middle; width: 30px; height: 30px;"></button></h1>
+  <h1 align="center" id="mutex-dataset">
+    <a href="#mutex-dataset">
+        MUTEX Dataset Visualization <button onclick="location.reload();" style="background: none; border: none; cursor: pointer;"><img src="src/reload.png" alt="Reload Page" style="vertical-align: middle; width: 30px; height: 30px;"></button>
+    </a>
+  </h1>
     <!-- Add a text describing the dataset details-->
     <table border="0" cellspacing="10" cellpadding="0" align="center">
         <tbody><tr><td>
