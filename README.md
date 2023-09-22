@@ -2,7 +2,7 @@
 ![Image](imgs/figure1.png)   
 [Rutav Shah](https://shahrutav.github.io/), [Roberto Martín-Martín](https://robertomartinmartin.com/)<sup>1</sup>, [Yuke Zhu](https://www.cs.utexas.edu/~yukez/)<sup>1</sup>  
 7th Annual Conference on Robot Learning  
-[[Paper]]()    [[Project Website]](https://ut-austin-rpl.github.io/mutex/)    [[Dataset]]()    [[Real Robot Control]](https://ut-austin-rpl.github.io/deoxys-docs/html/getting_started/overview.html)   
+[[Paper]](https://ut-austin-rpl.github.io/mutex/paper/mutex.pdf)    [[Project Website]](https://ut-austin-rpl.github.io/mutex/)    [[Dataset]](https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e)    [[Pretrained Weights]](https://utexas.box.com/s/7boowsyjpezcb0h59lz800rejx7yyvn5)    [[Real Robot Control]](https://ut-austin-rpl.github.io/deoxys-docs/html/getting_started/overview.html)   
 <sup>1</sup> Equal Advising  
 
 ## Setup  
@@ -16,13 +16,11 @@ pip install -r requirements.txt
 pip install -e LIBERO/.
 pip install -e .
 ```
-### Dataset Installation 
-```
-TODO
-```
-### Pretrained Weights
-```
-```
+### [Datasets](https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e)
+Please set the argument `folder=` to the dataset directory in the configs.
+
+### [Pretrained Weights](https://utexas.box.com/s/7boowsyjpezcb0h59lz800rejx7yyvn5)
+To use pretrained weights, follow the evaluation instructions mentioned below.
 
 ## Usage
 
@@ -56,8 +54,20 @@ MUJOCO_EGL_DEVICE_ID=0 CUDA_VISIBLE_DEVICES=0 python mutex/eval.py \
         benchmark_name=LIBERO_100 \
         folder=dataset-path \
         eval_spec_modalities=gl \
-        experiment_dir=experiments/pretrained_mutex \
+        experiment_dir=mutex_pretrained \
         model_name=mutex_weights.pth
+```
+
+### Citation
+
+```
+@inproceedings{
+    shah2023mutex,
+    title={{MUTEX}: Learning Unified Policies from Multimodal Task Specifications},
+    author={Rutav Shah and Roberto Mart{\'\i}n-Mart{\'\i}n and Yuke Zhu},
+    booktitle={7th Annual Conference on Robot Learning},
+    year={2023}
+}
 ```
 
 ### Acknowledgements: [Mentioned here](acknowledgements.md)
