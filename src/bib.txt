@@ -4,5 +4,4 @@
     author={Rutav Shah and Roberto Mart{\'\i}n-Mart{\'\i}n and Yuke Zhu},
     booktitle={7th Annual Conference on Robot Learning},
     year={2023}
-    url={}
 }
