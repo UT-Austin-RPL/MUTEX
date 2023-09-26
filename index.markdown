@@ -124,7 +124,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
 	<!-- <center><h2><a href="">Paper</a> | <a href="">Code</a> </h2></center> -->
 	<center>
         <h2>
-            <a href="paper/mutex.pdf">Paper</a> | <a href="https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e">Dataset</a> | <a href="https://github.com/UT-Austin-RPL/mutex">Code</a> | <a href="src/bib.txt">Bibtex</a>
+            <a href="https://arxiv.org/abs/2309.14320">Paper</a> | <a href="https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e">Dataset</a> | <a href="https://github.com/UT-Austin-RPL/mutex">Code</a> | <a href="src/bib.txt">Bibtex</a>
         </h2>
     </center>
     <center>
