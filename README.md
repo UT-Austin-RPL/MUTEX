@@ -2,7 +2,7 @@
 ![Image](imgs/figure1.png)   
 [Rutav Shah](https://shahrutav.github.io/), [Roberto Martín-Martín](https://robertomartinmartin.com/)<sup>1</sup>, [Yuke Zhu](https://www.cs.utexas.edu/~yukez/)<sup>1</sup>  
 7th Annual Conference on Robot Learning  
-[[Paper]](https://ut-austin-rpl.github.io/MUTEX/paper/mutex.pdf)    [[Project Website]](https://ut-austin-rpl.github.io/MUTEX/)    [[Dataset]](https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e)    [[Pretrained Weights]](https://utexas.box.com/s/7boowsyjpezcb0h59lz800rejx7yyvn5)    [[Real Robot Controller]](https://ut-austin-rpl.github.io/deoxys-docs/html/getting_started/overview.html)   
+[[Paper]](https://arxiv.org/abs/2309.14320)    [[Project Website]](https://ut-austin-rpl.github.io/MUTEX/)    [[Dataset]](https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e)    [[Pretrained Weights]](https://utexas.box.com/s/7boowsyjpezcb0h59lz800rejx7yyvn5)    [[Real Robot Controller]](https://ut-austin-rpl.github.io/deoxys-docs/html/getting_started/overview.html)   
 <sup>1</sup> Equal Advising  
 
 ## Setup  
