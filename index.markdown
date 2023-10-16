@@ -124,7 +124,7 @@ src="http://b5tcdn.bang5mai.com/js/flag.js?v=156945351"></script>
 	<!-- <center><h2><a href="">Paper</a> | <a href="">Code</a> </h2></center> -->
 	<center>
         <h2>
-            <a href="https://arxiv.org/abs/2309.14320">Paper</a> | <a href="https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e">Dataset</a> | <a href="https://github.com/UT-Austin-RPL/mutex">Code</a> | <a href="src/bib.txt">Bibtex</a>
+            <a href="https://arxiv.org/abs/2309.14320">Paper</a> | <a href="https://utexas.box.com/s/wepivf85cgini0eqpho9jae9c6o99n4e">Dataset</a> | <a href="https://github.com/UT-Austin-RPL/mutex">Code</a> | <a href="#mutex-bibtex">BibTeX</a>
         </h2>
     </center>
     <center>
@@ -588,6 +588,22 @@ Humans use different modalities, such as speech, text, images, videos, etc., to 
 
 <br>
 <hr>
+<h1 align="center" id="mutex-bibtex">BibTeX</h1>
+<table align=center>
+    <tr>
+        <td>
+        <left><pre><code style="display:block; overflow-x: auto">
+@inproceedings{shah2023mutex,
+	title        = {MUTEX: Learning Unified Policies from Multimodal Task Specifications},
+	author       = {Rutav Shah and Roberto Mart{\'\i}n-Mart{\'\i}n and Yuke Zhu},
+	year         = 2023,
+	booktitle    = {7th Annual Conference on Robot Learning},
+	url          = {https://openreview.net/forum?id=PwqiqaaEzJ}
+}
+        </code></pre></left>
+        </td>
+    </tr>
+</table>
 <!-- <center><h1>Citation</h1></center>
 
 <table align=center width=800px>
@@ -622,4 +638,3 @@ Humans use different modalities, such as speech, text, images, videos, etc., to 
   gtag('config', 'G-PPXN40YS69');
 </script>
 <!-- </center></div></body></div> -->
-
