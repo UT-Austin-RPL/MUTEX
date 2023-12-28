@@ -11,7 +11,7 @@ future==0.18.2
 matplotlib==3.5.3
 cloudpickle==2.1.0
 gym==0.25.2
-transformers==4.26.0
+transformers==4.36.0
 timm==0.6.7
 kornia==0.6.6
 datasets==2.11.0
