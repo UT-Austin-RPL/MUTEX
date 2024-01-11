@@ -7,11 +7,13 @@ import pandas as pd
 import pprint
 import time
 import torch
+import cv2
 from easydict import EasyDict
 from hydra.utils import to_absolute_path
 from omegaconf import OmegaConf
 
 from libero.libero import benchmark as bm
+from libero.libero.envs import OffScreenRenderEnv
 from mutex.utils import sample_frames
 from mutex.algos import Multitask
 from mutex.lf_datasets import get_dataset
@@ -35,6 +37,41 @@ class EvalLogger:
     def save(self, filename):
         df = pd.DataFrame(self._dict)
         df.to_csv(filename, index=False)
+
+def summary2video(task_ind, task_i, result_summary, eval_cfg, cfg):
+    #initiate evaluation envs
+    record_h, record_w = 512, 512
+    env_args = {
+        "bddl_file_name": os.path.join(cfg.bddl_folder, task_i.problem_folder, task_i.bddl_file),
+        "camera_heights": record_h,
+        "camera_widths": record_w,
+    }
+
+    env = OffScreenRenderEnv(**env_args)
+    env.seed(cfg.seed)
+    for traj_key in result_summary[task_ind]["sim_states"].keys():
+        print(f"Task index {task_ind}, eval_traj {traj_key}, length {len(result_summary[task_ind]['sim_states'][traj_key])}")
+
+        sim_state_traj = result_summary[task_ind]['sim_states'][traj_key]
+        imgs = []
+        for sim_state in sim_state_traj:
+            obs = env.regenerate_obs_from_state(sim_state)
+            img = obs["agentview_image"][::-1,:,:]
+            imgs.append(img)
+
+        make_dir(os.path.join(eval_cfg.experiment_dir, "videos"))
+        video_path = os.path.join(eval_cfg.experiment_dir, "videos", f"summary_taskind{task_ind}_no{traj_key}.avi")
+        print(f"---- Saving video: {len(imgs)}\n", video_path)
+        out = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'MJPG'), 30, (record_h, record_w))
+        # Write frames to the VideoWriter object
+        for frame in imgs:
+            out.write(frame)
+        # Release the VideoWriter object
+        out.release()
+
+    env.close()
+    import gc; gc.collect()
+    return
 
 def bm_set_task_embs(algo, benchmark, eval_spec_modalities, task_range, device):
     new_task_embs = []

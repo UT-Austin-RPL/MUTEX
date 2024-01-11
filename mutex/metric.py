@@ -134,7 +134,7 @@ def evaluate_one_task_success(
             sim_state = env.get_sim_state()
             for k in range(env_num):
                 if i*env_num+k < cfg.eval.n_eval:
-                    sim_states[i*env_num+k].append(sim_state[k])
+                    sim_states[i*env_num+k].append(sim_state if env_num == 1 else sim_state[k])
 
         while steps < cfg.eval.max_steps:
             steps += 1
@@ -152,7 +152,7 @@ def evaluate_one_task_success(
                 sim_state = env.get_sim_state()
                 for k in range(env_num):
                     if i*env_num+k < cfg.eval.n_eval:
-                        sim_states[i*env_num+k].append(sim_state[k])
+                        sim_states[i*env_num+k].append(sim_state if env_num == 1 else sim_state[k])
 
             # check whether succeed
             if env_num == 1:
